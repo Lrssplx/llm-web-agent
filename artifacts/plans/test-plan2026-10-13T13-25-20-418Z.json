@@ -1,0 +1,125 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:25:20.414Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Crie cenários de teste para a funcionalidade de login, incluindo cenários positivos, negativos e campos obrigatórios",
+  "feature": "Login - saucedemo.com",
+  "objective": "Verificar o comportamento da funcionalidade de login para credenciais válidas, inválidas e campos obrigatórios, garantindo que o acesso seja concedido apenas a usuários autorizados.",
+  "assumptions": [
+    "A mensagem exata exibida após login válido é 'Bem-vindo', conforme requisito; porém a aplicação real pode exibir outra mensagem ou redirecionar para uma página de inventário — este comportamento será tratado como hipótese quando não explicitamente confirmado.",
+    "Não foram fornecidas credenciais válidas; assume-se que existem credenciais públicas de demonstração disponíveis na própria página da aplicação (ex: listadas no formulário ou documentação oficial).",
+    "Não há requisito explícito sobre o comportamento para campos em branco; cenários relacionados são classificados como hipótese.",
+    "Não há requisito sobre bloqueio de conta por tentativas excessivas; este comportamento não será coberto neste plano.",
+    "A aplicação é acessível publicamente pela URL informada e não requer VPN ou autenticação prévia de rede."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas deve conceder acesso",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Navegador aberto na URL https://www.saucedemo.com/",
+        "Usuário possui credenciais válidas (ex: usuário e senha disponibilizados na página de login da aplicação)"
+      ],
+      "steps": [
+        "Acessar https://www.saucedemo.com/",
+        "Localizar o campo 'Username' e inserir um nome de usuário válido",
+        "Localizar o campo 'Password' e inserir a senha correspondente válida",
+        "Clicar no botão 'Login'",
+        "Observar o resultado na tela"
+      ],
+      "expectedResult": "O usuário é autenticado com sucesso e a aplicação exibe a mensagem 'Bem-vindo' ou redireciona para a página principal/inventário, indicando acesso concedido.",
+      "expectationSource": "requirement",
+      "risk": "Falha no fluxo principal impede qualquer uso da aplicação — risco crítico de negócio.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha inválida deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Navegador aberto na URL https://www.saucedemo.com/",
+        "Usuário possui um nome de usuário válido, mas utilizará uma senha incorreta"
+      ],
+      "steps": [
+        "Acessar https://www.saucedemo.com/",
+        "Inserir um nome de usuário válido no campo 'Username'",
+        "Inserir uma senha incorreta no campo 'Password'",
+        "Clicar no botão 'Login'",
+        "Observar a mensagem exibida na tela"
+      ],
+      "expectedResult": "O acesso é negado e uma mensagem de erro é exibida ao usuário, sem redirecionamento para área autenticada.",
+      "expectationSource": "requirement",
+      "risk": "Acesso indevido por falha na validação de senha representa risco de segurança alto.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com usuário inválido deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Navegador aberto na URL https://www.saucedemo.com/"
+      ],
+      "steps": [
+        "Acessar https://www.saucedemo.com/",
+        "Inserir um nome de usuário inexistente no campo 'Username' (ex: 'usuario_invalido_xyz')",
+        "Inserir qualquer valor no campo 'Password'",
+        "Clicar no botão 'Login'",
+        "Observar a mensagem exibida na tela"
+      ],
+      "expectedResult": "O acesso é negado e uma mensagem de erro é exibida, sem redirecionamento para área autenticada.",
+      "expectationSource": "requirement",
+      "risk": "Enumeração de usuários ou acesso indevido caso usuários inválidos sejam aceitos.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Login com campos obrigatórios em branco deve exibir validação",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Navegador aberto na URL https://www.saucedemo.com/"
+      ],
+      "steps": [
+        "Acessar https://www.saucedemo.com/",
+        "Deixar o campo 'Username' vazio",
+        "Deixar o campo 'Password' vazio",
+        "Clicar no botão 'Login'",
+        "Observar o comportamento da aplicação"
+      ],
+      "expectedResult": "A aplicação não realiza a autenticação e exibe mensagem(ns) de validação indicando que os campos são obrigatórios.",
+      "expectationSource": "hypothesis",
+      "risk": "Submissão de formulário vazio pode causar erros inesperados ou comportamento indefinido na aplicação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com apenas o campo senha em branco deve negar o acesso",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Navegador aberto na URL https://www.saucedemo.com/"
+      ],
+      "steps": [
+        "Acessar https://www.saucedemo.com/",
+        "Inserir um nome de usuário válido no campo 'Username'",
+        "Deixar o campo 'Password' vazio",
+        "Clicar no botão 'Login'",
+        "Observar o comportamento da aplicação"
+      ],
+      "expectedResult": "A aplicação não realiza a autenticação e exibe mensagem de validação indicando que a senha é obrigatória ou que as credenciais são inválidas.",
+      "expectationSource": "hypothesis",
+      "risk": "Autenticação sem senha representaria falha crítica de segurança.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1085,
+    "outputTokens": 1332,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

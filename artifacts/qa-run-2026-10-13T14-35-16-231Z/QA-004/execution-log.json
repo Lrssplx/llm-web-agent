@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-13T14:36:28.216Z",
+  "finalUrl": "https://www.saucedemo.com/",
+  "totalActions": 3,
+  "actions": [
+    {
+      "action": "navigate",
+      "success": true,
+      "durationMs": 790,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:36:13.746Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 355,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:36:17.179Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 4,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:36:19.570Z"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "timestamp": "2026-10-13T14:36:14.384Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:36:14.398Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:36:25.351Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:36:25.369Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageErrors": []
+}

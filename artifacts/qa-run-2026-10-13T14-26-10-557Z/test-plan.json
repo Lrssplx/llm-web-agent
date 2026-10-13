@@ -1,0 +1,132 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T14:26:36.840Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Explore a funcionalidade de login do Swag Labs. Crie e execute cenários positivos, negativos e de borda, verificando mensagens de erro e comportamentos inesperados.",
+  "feature": "Login - Swag Labs (SauceDemo)",
+  "objective": "Explorar a funcionalidade de login da aplicação Swag Labs, verificando comportamentos positivos, negativos e de borda, com foco em mensagens de erro e fluxos inesperados. Como não há requisitos formais fornecidos, os resultados esperados são classificados como hipóteses.",
+  "assumptions": [
+    "Não foram fornecidos requisitos oficiais; todos os resultados esperados são inferidos com base em comportamento padrão de sistemas de autenticação.",
+    "A aplicação disponibiliza publicamente credenciais de teste na própria página de login (ex: standard_user, locked_out_user, etc.).",
+    "O ambiente https://www.saucedemo.com/ está acessível e estável durante a execução dos testes.",
+    "Não há mecanismo de bloqueio por tentativas excessivas confirmado; isso será tratado como exploratório.",
+    "Campos de usuário e senha são obrigatórios, mas não há validação de formato de e-mail confirmada.",
+    "O comportamento exato das mensagens de erro (texto, estilo, posicionamento) não está documentado e será tratado como hipótese."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login bem-sucedido com usuário padrão válido",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos Username e Password"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' na página de login.",
+        "Inserir o valor 'standard_user' no campo 'Username'.",
+        "Localizar o campo 'Password' na página de login.",
+        "Inserir o valor 'secret_sauce' no campo 'Password'.",
+        "Clicar no botão 'Login'.",
+        "Observar a página resultante após o clique."
+      ],
+      "expectedResult": "O usuário é redirecionado para a página de inventário de produtos ('/inventory.html') e o conteúdo da loja é exibido corretamente.",
+      "expectationSource": "hypothesis",
+      "risk": "Falha no fluxo principal impede completamente o uso da aplicação; risco crítico de regressão.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com usuário bloqueado (locked_out_user)",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e inserir o valor 'locked_out_user'.",
+        "Localizar o campo 'Password' e inserir o valor 'secret_sauce'.",
+        "Clicar no botão 'Login'.",
+        "Observar se uma mensagem de erro é exibida na tela.",
+        "Registrar o texto exato da mensagem de erro apresentada."
+      ],
+      "expectedResult": "O login é recusado e uma mensagem de erro informando que o usuário está bloqueado é exibida na tela. O usuário permanece na página de login.",
+      "expectationSource": "hypothesis",
+      "risk": "Usuário bloqueado conseguir acessar a aplicação seria uma falha grave de controle de acesso.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com senha incorreta para usuário válido",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e inserir o valor 'standard_user'.",
+        "Localizar o campo 'Password' e inserir uma senha inválida, como 'senha_errada_123'.",
+        "Clicar no botão 'Login'.",
+        "Observar se uma mensagem de erro é exibida.",
+        "Registrar o texto exato e a localização da mensagem de erro."
+      ],
+      "expectedResult": "O login é recusado, uma mensagem de erro genérica é exibida (sem revelar se o usuário existe ou a senha está errada), e o usuário permanece na página de login.",
+      "expectationSource": "hypothesis",
+      "risk": "Mensagens de erro que distinguem 'usuário inválido' de 'senha inválida' facilitam ataques de enumeração de usuários.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Tentativa de login com campos obrigatórios em branco",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos vazios"
+      ],
+      "steps": [
+        "Certificar-se de que os campos 'Username' e 'Password' estão completamente vazios.",
+        "Clicar diretamente no botão 'Login' sem preencher nenhum campo.",
+        "Observar o comportamento da aplicação.",
+        "Registrar se alguma mensagem de erro ou validação é exibida.",
+        "Repetir o teste preenchendo apenas o campo 'Username' com 'standard_user' e deixando 'Password' vazio, clicando em 'Login'.",
+        "Registrar o comportamento e a mensagem exibida."
+      ],
+      "expectedResult": "A aplicação exibe mensagens de validação indicando que os campos obrigatórios não foram preenchidos, sem redirecionar o usuário. Cada campo vazio deve gerar uma mensagem clara.",
+      "expectationSource": "hypothesis",
+      "risk": "Ausência de validação de campos em branco pode causar erros não tratados ou comportamentos inesperados no backend.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login exploratório com caracteres especiais e injeção básica no campo Username",
+      "type": "exploratory",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username'.",
+        "Inserir o valor ' ' OR '1'='1 no campo 'Username'.",
+        "Localizar o campo 'Password' e inserir qualquer valor, como 'qualquer_senha'.",
+        "Clicar no botão 'Login'.",
+        "Observar a resposta da aplicação: mensagem de erro, redirecionamento ou comportamento anômalo.",
+        "Registrar prints ou descrições do comportamento observado."
+      ],
+      "expectedResult": "A aplicação rejeita a entrada maliciosa, exibe uma mensagem de erro genérica e permanece na página de login, sem conceder acesso ou expor informações sensíveis.",
+      "expectationSource": "hypothesis",
+      "risk": "Ausência de sanitização de entrada pode indicar vulnerabilidade a SQL Injection, comprometendo a segurança da aplicação.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1067,
+    "outputTokens": 1564,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

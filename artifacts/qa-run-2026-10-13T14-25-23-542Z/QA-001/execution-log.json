@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-10-13T14:25:39.418Z",
+  "finalUrl": "https://www.saucedemo.com/inventory.html",
+  "totalActions": 4,
+  "actions": [
+    {
+      "action": "navigate",
+      "success": true,
+      "durationMs": 773,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:25:24.781Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 674,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:25:27.308Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 588,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:25:29.676Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 371,
+      "url": "https://www.saucedemo.com/inventory.html",
+      "timestamp": "2026-10-13T14:25:31.342Z"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "timestamp": "2026-10-13T14:25:25.440Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:25:25.457Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:25:36.408Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:25:36.437Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageErrors": []
+}

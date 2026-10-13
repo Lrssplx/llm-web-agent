@@ -1,0 +1,342 @@
+{
+  "generatedAt": "2026-10-13T14:28:47.421Z",
+  "feature": "Login - Swag Labs (SauceDemo)",
+  "objective": "Explorar a funcionalidade de login da aplicação Swag Labs, verificando comportamentos positivos, negativos e de borda, com foco em mensagens de erro e fluxos inesperados. Como não há requisitos formais fornecidos, os resultados esperados são classificados como hipóteses.",
+  "baseUrl": "https://www.saucedemo.com/",
+  "totalScenarios": 5,
+  "mode": "exploratory",
+  "completedExecutions": 5,
+  "passed": 0,
+  "failed": 0,
+  "inconclusive": 5,
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login bem-sucedido com usuário padrão válido",
+      "type": "positive",
+      "priority": "high",
+      "expectedResult": "O usuário é redirecionado para a página de inventário de produtos ('/inventory.html') e o conteúdo da loja é exibido corretamente.",
+      "expectationSource": "hypothesis",
+      "executionCompleted": true,
+      "status": "INCONCLUSIVE",
+      "evaluation": {
+        "scenarioId": "QA-001",
+        "status": "INCONCLUSIVE",
+        "expected": null,
+        "observed": null,
+        "reason": "Não há expectativa aprovada.",
+        "evaluatedAt": "2026-10-13T14:27:01.586Z"
+      },
+      "agentSummary": "Cenário QA-001 executado com sucesso. O login com 'standard_user' e 'secret_sauce' redirecionou corretamente para 'https://www.saucedemo.com/inventory.html', exibindo o catálogo de 6 produtos com nome, descrição, preço e botão \"Add to cart\". O comportamento observado está em total conformidade com o resultado esperado descrito no cenário.",
+      "metrics": {
+        "inputTokens": 11233,
+        "outputTokens": 1250,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 5,
+        "durationMs": 23501,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 665,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 601,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 364,
+            "url": "https://www.saucedemo.com/inventory.html"
+          },
+          {
+            "step": 4,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 5,
+            "url": "https://www.saucedemo.com/inventory.html"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-001\\evidence.png",
+      "error": null,
+      "scenarioKey": null
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com usuário bloqueado (locked_out_user)",
+      "type": "negative",
+      "priority": "high",
+      "expectedResult": "O login é recusado e uma mensagem de erro informando que o usuário está bloqueado é exibida na tela. O usuário permanece na página de login.",
+      "expectationSource": "hypothesis",
+      "executionCompleted": true,
+      "status": "INCONCLUSIVE",
+      "evaluation": {
+        "scenarioId": "QA-002",
+        "status": "INCONCLUSIVE",
+        "expected": null,
+        "observed": null,
+        "reason": "Não há expectativa aprovada.",
+        "evaluatedAt": "2026-10-13T14:27:22.306Z"
+      },
+      "agentSummary": "Cenário QA-002 executado com sucesso. Ao tentar login com 'locked_out_user' e senha 'secret_sauce', a aplicação recusou o acesso e exibiu a mensagem de erro: \"Epic sadface: Sorry, this user has been locked out.\" O usuário permaneceu na página de login (https://www.saucedemo.com/), confirmando o comportamento esperado conforme a hipótese do cenário.",
+      "metrics": {
+        "inputTokens": 9555,
+        "outputTokens": 987,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 5,
+        "durationMs": 19206,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 672,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 569,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 331,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-002\\evidence.png",
+      "error": null,
+      "scenarioKey": null
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com senha incorreta para usuário válido",
+      "type": "negative",
+      "priority": "high",
+      "expectedResult": "O login é recusado, uma mensagem de erro genérica é exibida (sem revelar se o usuário existe ou a senha está errada), e o usuário permanece na página de login.",
+      "expectationSource": "hypothesis",
+      "executionCompleted": true,
+      "status": "INCONCLUSIVE",
+      "evaluation": {
+        "scenarioId": "QA-003",
+        "status": "INCONCLUSIVE",
+        "expected": null,
+        "observed": null,
+        "reason": "Não há expectativa aprovada.",
+        "evaluatedAt": "2026-10-13T14:27:49.905Z"
+      },
+      "agentSummary": "\n## Relatório de Execução — QA-003: Login com senha incorreta para usuário válido\n\n---\n\n### ✅ Execução concluída com sucesso (investigação finalizada)\n\n---\n\n### 📋 Passos Executados\n\n| Passo | Ação | Resultado Observado |\n|-------|------|---------------------|\n| 1 | Inseriu `standard_user` no campo Username | Campo preenchido corretamente |\n| 2 | Inseriu `senha_errada_123` no campo Password | Campo preenchido corretamente |\n| 3 | Clicou no botão Login | Formulário submetido |\n| 4 | Observação pós-clique | Mensagem de erro exibida; URL permaneceu em `https://www.saucedemo.com/` |\n| 5 | Extração do conteúdo da página | Texto da mensagem de erro capturado |\n\n---\n\n### 🔴 Mensagem de Erro Exibida\n\n**Texto exato:**\n> `\"Epic sadface: Username and password do not match any user in this service\"`\n\n**Localização:**\n- Exibida na página de login (`https://www.saucedemo.com/`)\n- Acompanhada de um botão \"Dismiss error\" (para fechar a mensagem)\n- O usuário permaneceu na página de login (URL não alterada)\n\n---\n\n### 🔍 Comparação com o Resultado Esperado\n\n| Critério | Esperado | Observado | Status |\n|----------|----------|-----------|--------|\n| Login recusado | Sim | Sim — URL não mudou, sessão não iniciada | ✅ |\n| Permanência na página de login | Sim | Sim — URL mantida em `https://www.saucedemo.com/` | ✅ |\n| Mensagem de erro exibida | Sim | Sim — `\"Epic sadface: Username and password do not match any user in this service\"` | ✅ |\n| Mensagem genérica (sem revelar se usuário existe ou senha está errada) | Sim | ⚠️ **Parcialmente** — A mensagem não diferencia usuário/senha explicitamente, porém o conteúdo da página exibe abertamente os usernames aceitos e a senha correta para todos os usuários | ⚠️ |\n\n---\n\n### ⚠️ Observação Relevante (Não é defeito neste contexto)\n\nA página de login da aplicação exibe publicamente, abaixo do formulário, **todos os usuários aceitos e a senha correta** (`secret_sauce`). Isso é característico de um ambiente de demonstração/QA (Sauce Demo), não de uma aplicação de produção. Portanto, esta exposição é intencional para fins didáticos e **não deve ser interpretada como defeito de segurança** neste contexto.\n\n---\n\n### 📌 Conclusão\n\nO comportamento principal do sistema está **alinhado com o resultado esperado**: o login foi recusado, uma mensagem de erro foi exibida e o usuário permaneceu na página de login. A mensagem não diferencia explicitamente se o erro é no usuário ou na senha, o que é uma boa prática de segurança na resposta de autenticação.\n",
+      "metrics": {
+        "inputTokens": 9706,
+        "outputTokens": 1295,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 5,
+        "durationMs": 26164,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 643,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 695,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 322,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 4,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-003\\evidence.png",
+      "error": null,
+      "scenarioKey": null
+    },
+    {
+      "id": "QA-004",
+      "title": "Tentativa de login com campos obrigatórios em branco",
+      "type": "boundary",
+      "priority": "medium",
+      "expectedResult": "A aplicação exibe mensagens de validação indicando que os campos obrigatórios não foram preenchidos, sem redirecionar o usuário. Cada campo vazio deve gerar uma mensagem clara.",
+      "expectationSource": "hypothesis",
+      "executionCompleted": true,
+      "status": "INCONCLUSIVE",
+      "evaluation": {
+        "scenarioId": "QA-004",
+        "status": "INCONCLUSIVE",
+        "expected": null,
+        "observed": null,
+        "reason": "Não há expectativa aprovada.",
+        "evaluatedAt": "2026-10-13T14:28:15.192Z"
+      },
+      "agentSummary": "\n## Relatório de Execução — QA-004: Tentativa de login com campos obrigatórios em branco\n\n### Ambiente\n- **URL:** https://www.saucedemo.com/\n- **Aplicação:** Swag Labs\n\n---\n\n### Execução dos Passos\n\n#### Passos 1–4: Ambos os campos vazios → clicar em Login\n\n- **Ação:** Clique em \"Login\" com Username e Password completamente vazios.\n- **Comportamento observado:** A aplicação **não redirecionou** o usuário.\n- **Mensagem exibida:** `\"Epic sadface: Username is required\"`\n- **Avaliação:** A aplicação validou a ausência do campo Username e exibiu mensagem de erro clara. Apenas o primeiro campo ausente foi reportado de cada vez (validação sequencial).\n\n---\n\n#### Passos 5–6: Username preenchido ('standard_user') + Password vazio → clicar em Login\n\n- **Ação:** Clicar em \"Login\" com apenas o campo Username preenchido.\n- **Comportamento observado:** A aplicação **não redirecionou** o usuário.\n- **Mensagem exibida:** `\"Epic sadface: Password is required\"`\n- **Avaliação:** A aplicação validou a ausência do campo Password e exibiu mensagem de erro clara.\n\n---\n\n### Comparação com o Resultado Esperado\n\n| Critério esperado | Resultado obtido |\n|---|---|\n| Não redirecionar o usuário | ✅ Confirmado em ambos os casos |\n| Exibir mensagem de validação | ✅ Mensagens claras foram exibidas |\n| Cada campo vazio gera mensagem | ⚠️ A validação é **sequencial**: somente o primeiro campo vazio é reportado por tentativa (não simultânea) |\n\n---\n\n### Observação Final\n\nO comportamento da aplicação está alinhado com o resultado esperado descrito na hipótese, com a ressalva de que as mensagens de erro são exibidas **sequencialmente** (um campo por vez), e não **simultaneamente** para todos os campos vazios. Isso não representa necessariamente um defeito, sendo uma escolha de design de validação. A investigação foi concluída com sucesso.\n",
+      "metrics": {
+        "inputTokens": 15045,
+        "outputTokens": 1200,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 7,
+        "durationMs": 23818,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "click",
+            "success": true,
+            "durationMs": 351,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "type",
+            "success": true,
+            "durationMs": 615,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 5,
+            "tool": "click",
+            "success": true,
+            "durationMs": 320,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 6,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-004\\evidence.png",
+      "error": null,
+      "scenarioKey": null
+    },
+    {
+      "id": "QA-005",
+      "title": "Login exploratório com caracteres especiais e injeção básica no campo Username",
+      "type": "exploratory",
+      "priority": "medium",
+      "expectedResult": "A aplicação rejeita a entrada maliciosa, exibe uma mensagem de erro genérica e permanece na página de login, sem conceder acesso ou expor informações sensíveis.",
+      "expectationSource": "hypothesis",
+      "executionCompleted": true,
+      "status": "INCONCLUSIVE",
+      "evaluation": {
+        "scenarioId": "QA-005",
+        "status": "INCONCLUSIVE",
+        "expected": null,
+        "observed": null,
+        "reason": "Não há expectativa aprovada.",
+        "evaluatedAt": "2026-10-13T14:28:47.119Z"
+      },
+      "agentSummary": "\n## Relatório de Execução — QA-005: Login Exploratório com Injeção SQL Básica\n\n### Ambiente\n- **URL:** https://www.saucedemo.com/\n- **Título da aplicação:** Swag Labs\n\n---\n\n### Passos Executados\n\n| # | Ação | Resultado Observado |\n|---|------|---------------------|\n| 1 | Localizar campo 'Username' | Campo encontrado e selecionado com sucesso |\n| 2 | Inserir `' OR '1'='1` no campo 'Username' | Valor aceito pelo campo (sem filtro client-side aparente) |\n| 3 | Inserir `qualquer_senha` no campo 'Password' | Valor aceito normalmente |\n| 4 | Clicar no botão 'Login' | Aplicação permaneceu na página de login; botão \"Dismiss error\" apareceu |\n| 5 | Extrair texto da página | Mensagem de erro exibida; sem redirecionamento |\n\n---\n\n### Comportamento Observado\n\n- **URL após tentativa:** https://www.saucedemo.com/ (sem redirecionamento)\n- **Mensagem de erro exibida:**\n  > *\"Epic sadface: Username and password do not match any user in this service\"*\n- **Acesso concedido:** ❌ Não\n- **Redirecionamento anômalo:** ❌ Não\n- **Exposição de informações sensíveis:** ⚠️ A mensagem de erro lista os usernames válidos aceitos pela aplicação (`standard_user`, `locked_out_user`, `problem_user`, etc.) e informa a senha padrão (`secret_sauce`). Embora seja uma página demo/educacional, esse comportamento de exposição de credenciais no HTML seria considerado um problema de segurança em ambiente de produção real.\n\n---\n\n### Avaliação vs. Resultado Esperado\n\n| Critério | Esperado | Observado | Status |\n|----------|----------|-----------|--------|\n| Rejeita entrada maliciosa | ✅ Sim | ✅ Sim | ✅ CONFORME |\n| Exibe mensagem de erro genérica | ✅ Sim | ⚠️ Parcial — mensagem exibida, mas com enumeração de usuários | ⚠️ OBSERVAÇÃO |\n| Permanece na página de login | ✅ Sim | ✅ Sim | ✅ CONFORME |\n| Não concede acesso | ✅ Sim | ✅ Sim | ✅ CONFORME |\n| Não expõe informações sensíveis | ✅ Sim | ⚠️ Expõe usernames válidos e senha no HTML | ⚠️ OBSERVAÇÃO |\n\n---\n\n### Conclusão\n\nA aplicação **rejeitou corretamente** a tentativa de injeção SQL básica, não concedeu acesso e manteve o usuário na página de login — alinhado ao resultado esperado. A investigação foi concluída com sucesso.\n\n> **Nota:** A exposição de credenciais válidas na mensagem de erro é uma característica intencional desta aplicação de demonstração (SauceDemo), não devendo ser interpretada como defeito no contexto do cenário. Em um sistema de produção real, isso seria classificado como *Information Disclosure* e mereceria atenção.\n",
+      "metrics": {
+        "inputTokens": 14789,
+        "outputTokens": 1451,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 7,
+        "durationMs": 30494,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "click",
+            "success": true,
+            "durationMs": 330,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 563,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 316,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "type",
+            "success": true,
+            "durationMs": 632,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 5,
+            "tool": "click",
+            "success": true,
+            "durationMs": 329,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 6,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-005\\evidence.png",
+      "error": null,
+      "scenarioKey": null
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "QA-003",
+  "title": "Login com usuário inexistente",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "Acesso negado com mensagem de credenciais inválidas.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-003",
+    "status": "PASS",
+    "expected": "Epic sadface: Username and password do not match any user in this service",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:36:12.290Z"
+  },
+  "agentSummary": "Cenário QA-003 (LOGIN_INVALID_USER) executado com sucesso. Ao tentar login com username \"usuario_inexistente\" e password \"secret_sauce\", a aplicação negou o acesso e exibiu a mensagem: \"Epic sadface: Username and password do not match any user in this service\". O comportamento está em conformidade com o resultado esperado: acesso negado com mensagem de credenciais inválidas.",
+  "metrics": {
+    "inputTokens": 9028,
+    "outputTokens": 991,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 16888,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 812,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 544,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 325,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-35-16-231Z\\QA-003\\evidence.png",
+  "error": null,
+  "scenarioKey": "LOGIN_INVALID_USER"
+}

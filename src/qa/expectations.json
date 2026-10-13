@@ -1,0 +1,44 @@
+{
+  "expectations": [
+    {
+      "scenarioId": "QA-001",
+      "title": "Login bem-sucedido com credenciais válidas",
+      "approved": true,
+      "source": "requirement",
+      "type": "url_contains",
+      "value": "/inventory.html"
+    },
+    {
+      "scenarioId": "QA-002",
+      "title": "Login com senha incorreta exibe mensagem de erro",
+      "approved": true,
+      "source": "requirement",
+      "type": "text_visible",
+      "value": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "scenarioId": "QA-003",
+      "title": "Login com usuário inválido e senha inválida",
+      "approved": true,
+      "source": "requirement",
+      "type": "text_visible",
+      "value": "Epic sadface: Username and password do not match any user in this service"
+    },
+    {
+      "scenarioId": "QA-004",
+      "title": "Login com campos obrigatórios vazios",
+      "approved": true,
+      "source": "requirement",
+      "type": "text_visible",
+      "value": "Epic sadface: Username is required"
+    },
+    {
+      "scenarioId": "QA-005",
+      "title": "Login com apenas o campo senha em branco",
+      "approved": true,
+      "source": "requirement",
+      "type": "text_visible",
+      "value": "Epic sadface: Password is required"
+    }
+  ]
+}

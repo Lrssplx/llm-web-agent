@@ -1,0 +1,53 @@
+{
+  "id": "QA-001",
+  "title": "Login com credenciais válidas",
+  "type": "positive",
+  "priority": "high",
+  "expectedResult": "Usuário redirecionado para a página de produtos.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-001",
+    "status": "PASS",
+    "expected": "/inventory.html",
+    "observed": "https://www.saucedemo.com/inventory.html",
+    "reason": "URL corresponde ao critério.",
+    "evaluatedAt": "2026-10-13T14:35:36.175Z"
+  },
+  "agentSummary": "## Resultado da Execução — QA-001 (LOGIN_VALID)\n\n**Status do Cenário: ✅ PASSOU**\n\n### Resumo da Execução\n\n| Passo | Ação | Resultado |\n|-------|------|-----------|\n| 1 | Preencher Username com `standard_user` | ✅ Campo preenchido |\n| 2 | Preencher Password com `secret_sauce` | ✅ Campo preenchido |\n| 3 | Clicar no botão Login | ✅ Ação executada |\n| 4 | Observar resultado | ✅ Redirecionamento para página de produtos |\n\n### Evidências Coletadas\n- **URL antes do login:** `https://www.saucedemo.com/`\n- **URL após o login:** `https://www.saucedemo.com/inventory.html`\n- **Conteúdo da página:** Listagem de 6 produtos visíveis (Sauce Labs Backpack, Bike Light, Bolt T-Shirt, Fleece Jacket, Onesie, Test.allTheThings() T-Shirt Red)\n- **Elementos presentes:** Menu de navegação, carrinho, filtro de ordenação e botões \"Add to cart\"\n\n### Comparação com Resultado Esperado\n- **Esperado:** Usuário redirecionado para a página de produtos.\n- **Observado:** Usuário foi redirecionado para `inventory.html`, que exibe a página de produtos com o catálogo completo.\n- **Conformidade:** ✅ Resultado observado está **conforme** o resultado esperado (origem: requirement).\n\n### Conclusão\nO cenário QA-001 foi executado com sucesso. O login com credenciais válidas (`standard_user` / `secret_sauce`) redireciona corretamente o usuário para a página de inventário de produtos, atendendo plenamente ao critério de aceitação definido.",
+  "metrics": {
+    "inputTokens": 7490,
+    "outputTokens": 934,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 18558,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 652,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 551,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 372,
+        "url": "https://www.saucedemo.com/inventory.html"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-35-16-231Z\\QA-001\\evidence.png",
+  "error": null,
+  "scenarioKey": "LOGIN_VALID"
+}

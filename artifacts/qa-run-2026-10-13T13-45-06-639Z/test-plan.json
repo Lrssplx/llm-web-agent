@@ -1,0 +1,124 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:45:26.733Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste o login com credenciais válidas e inválidas",
+  "feature": "Login - SauceDemo",
+  "objective": "Verificar o comportamento do login com credenciais válidas e inválidas, garantindo acesso correto para usuários autenticados e bloqueio para credenciais inválidas.",
+  "assumptions": [
+    "A mensagem exata de 'Bem-vindo' mencionada no requisito pode variar na interface real da aplicação; será tratada como redirecionamento para área autenticada caso não haja mensagem textual explícita.",
+    "As credenciais válidas de teste para a aplicação SauceDemo são de conhecimento público (ex: standard_user), mas não serão assumidas como requisito — apenas como dado inferido para planejamento.",
+    "Não há requisito explícito sobre bloqueio por tentativas excessivas de login; cenário relacionado será tratado como hipótese.",
+    "O comportamento exato da mensagem de erro para credenciais inválidas não está especificado nos requisitos fornecidos; será tratado como hipótese.",
+    "A aplicação está acessível e funcional na URL informada durante a execução dos testes."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas deve conceder acesso à aplicação",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "Garantir que a página de login esteja visível com os campos de usuário e senha"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário na página de login",
+        "Inserir um nome de usuário válido no campo de usuário",
+        "Localizar o campo de senha na página de login",
+        "Inserir a senha correspondente válida no campo de senha",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O usuário é autenticado com sucesso e redirecionado para a página principal da aplicação, exibindo a mensagem de boas-vindas conforme requisito.",
+      "expectationSource": "requirement",
+      "risk": "Falha neste cenário impede completamente o acesso legítimo à aplicação, impactando todos os usuários.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "Garantir que a página de login esteja visível"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário",
+        "Inserir um nome de usuário válido",
+        "Localizar o campo de senha",
+        "Inserir uma senha incorreta ou inválida",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida indicando credenciais inválidas.",
+      "expectationSource": "requirement",
+      "risk": "Se credenciais inválidas concederem acesso, há risco crítico de segurança e violação de controle de acesso.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com usuário inexistente deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "Garantir que a página de login esteja visível"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário",
+        "Inserir um nome de usuário que não existe no sistema",
+        "Localizar o campo de senha",
+        "Inserir qualquer valor no campo de senha",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida indicando que as credenciais são inválidas.",
+      "expectationSource": "requirement",
+      "risk": "Usuários inexistentes com acesso concedido representam falha grave de segurança.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Login com campos de usuário e senha em branco deve exibir mensagem de validação",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "Garantir que a página de login esteja visível e os campos estejam vazios"
+      ],
+      "steps": [
+        "Certificar que o campo de nome de usuário está vazio",
+        "Certificar que o campo de senha está vazio",
+        "Clicar no botão de login sem preencher nenhum campo"
+      ],
+      "expectedResult": "O sistema não realiza a autenticação e exibe uma mensagem de validação solicitando o preenchimento dos campos obrigatórios.",
+      "expectationSource": "hypothesis",
+      "risk": "Ausência de validação pode causar erros inesperados no servidor ou comportamento indefinido na interface.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com usuário válido e campo de senha vazio deve negar o acesso",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "Garantir que a página de login esteja visível"
+      ],
+      "steps": [
+        "Inserir um nome de usuário válido no campo de usuário",
+        "Deixar o campo de senha completamente vazio",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado e uma mensagem de validação ou erro é exibida, impedindo a autenticação sem senha.",
+      "expectationSource": "hypothesis",
+      "risk": "Permitir login sem senha representaria falha crítica de autenticação e controle de acesso.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1068,
+    "outputTokens": 1242,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

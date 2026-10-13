@@ -1,0 +1,127 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:40:57.263Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste o login com credenciais válidas e inválidas",
+  "feature": "Login - SauceDemo",
+  "objective": "Validar o comportamento do fluxo de login com credenciais válidas e inválidas, garantindo que usuários autorizados obtenham acesso e que tentativas inválidas sejam bloqueadas.",
+  "assumptions": [
+    "O requisito menciona 'mensagem Bem-vindo', porém não foram fornecidos detalhes sobre o texto exato exibido após login bem-sucedido. O resultado esperado para redirecionamento pós-login é tratado como hipótese.",
+    "Não foram fornecidas credenciais válidas nos requisitos. Presume-se que existam usuários de teste públicos documentados para a aplicação saucedemo.com (ex: standard_user / secret_sauce), mas nenhuma credencial privada foi inventada.",
+    "Não há especificação sobre bloqueio por tentativas múltiplas ou política de lockout. Cenários relacionados são tratados como hipótese.",
+    "O requisito não detalha o comportamento dos campos vazios. Esse comportamento é inferido como hipótese.",
+    "A aplicação pode apresentar usuários com perfis diferentes (ex: usuário bloqueado), o que pode afetar o fluxo de login."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas deve conceder acesso",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível com campos de usuário e senha"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário na página de login",
+        "Inserir um nome de usuário válido conhecido para a aplicação",
+        "Localizar o campo de senha",
+        "Inserir a senha correspondente ao usuário válido",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O usuário é redirecionado para a página principal da loja e uma mensagem de boas-vindas ou o conteúdo da loja é exibido, confirmando acesso autenticado.",
+      "expectationSource": "requirement",
+      "risk": "Falha neste cenário impede completamente o uso da aplicação por usuários legítimos.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário",
+        "Inserir um nome de usuário válido conhecido para a aplicação",
+        "Localizar o campo de senha",
+        "Inserir uma senha incorreta ou aleatória",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro indicando credenciais inválidas é exibida.",
+      "expectationSource": "requirement",
+      "risk": "Falha neste cenário permite acesso não autorizado à aplicação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com usuário inexistente deve negar o acesso",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário",
+        "Inserir um nome de usuário que não existe na aplicação",
+        "Localizar o campo de senha",
+        "Inserir qualquer senha",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida informando que as credenciais são inválidas.",
+      "expectationSource": "requirement",
+      "risk": "Enumeração de usuários pode ocorrer se mensagens de erro diferenciarem usuário inválido de senha inválida.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Login com campos obrigatórios vazios deve exibir validação",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Deixar o campo de nome de usuário vazio",
+        "Deixar o campo de senha vazio",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O sistema não realiza a requisição de autenticação e exibe uma mensagem de validação informando que os campos são obrigatórios.",
+      "expectationSource": "hypothesis",
+      "risk": "Sem validação de campos vazios, requisições desnecessárias são enviadas ao servidor e a experiência do usuário é prejudicada.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com usuário bloqueado deve negar acesso com mensagem específica",
+      "type": "exploratory",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível",
+        "Existir um usuário com perfil bloqueado na aplicação"
+      ],
+      "steps": [
+        "Localizar o campo de nome de usuário",
+        "Inserir o nome de usuário com perfil bloqueado, se conhecido pela documentação pública da aplicação",
+        "Localizar o campo de senha",
+        "Inserir a senha correspondente",
+        "Clicar no botão de login"
+      ],
+      "expectedResult": "O acesso é negado e uma mensagem específica informa que o usuário está bloqueado, diferenciando do erro genérico de credenciais inválidas.",
+      "expectationSource": "hypothesis",
+      "risk": "Usuário bloqueado com acesso concedido representa falha de controle de acesso. Mensagem genérica pode dificultar diagnóstico pelo usuário legítimo.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1068,
+    "outputTokens": 1306,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

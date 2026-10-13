@@ -1,0 +1,69 @@
+{
+  "id": "QA-005",
+  "title": "Login com credenciais válidas e verificação de persistência de sessão após navegação",
+  "type": "exploratory",
+  "priority": "medium",
+  "expectedResult": "O usuário permanece autenticado ao retornar para a URL raiz após login bem-sucedido, sendo mantido na sessão ativa.",
+  "expectationSource": "hypothesis",
+  "executionCompleted": true,
+  "status": "FAIL",
+  "evaluation": {
+    "scenarioId": "QA-005",
+    "status": "FAIL",
+    "expected": "Epic sadface: Password is required",
+    "observed": {
+      "url": "https://www.saucedemo.com/",
+      "visibleText": "Swag Labs\nAccepted usernames are:\nstandard_user\nlocked_out_user\nproblem_user\nperformance_glitch_user\nerror_user\nvisual_user\n\nPassword for all users:\nsecret_sauce"
+    },
+    "reason": "Critério aprovado não foi atendido.",
+    "evaluatedAt": "2026-10-13T14:08:12.590Z"
+  },
+  "agentSummary": "\n## Resultado da Execução — QA-005\n\n### Resumo dos Passos Executados\n\n| Passo | Ação | Resultado Observado |\n|-------|------|---------------------|\n| 1 | Acessar https://www.saucedemo.com/ | Página de login exibida corretamente |\n| 2 | Inserir 'standard_user' no campo Username | Campo preenchido |\n| 3 | Inserir 'secret_sauce' no campo Password | Campo preenchido |\n| 4 | Clicar no botão Login | Login realizado com sucesso |\n| 5 | Verificar página de produtos | URL: `/inventory.html` — lista de 6 produtos exibida ✓ |\n| 6 | Navegar para https://www.saucedemo.com/ | URL retornou para a raiz |\n| 7 | Observar estado de autenticação | **Tela de login foi exibida novamente** — campos Username e Password visíveis |\n\n---\n\n### Comportamento Observado\nAo retornar à URL raiz (`https://www.saucedemo.com/`) após login bem-sucedido, o usuário **não permaneceu autenticado**. A aplicação exibiu novamente a tela de login, sem redirecionar o usuário para `/inventory.html` ou manter a sessão ativa.\n\n### Comparação com o Resultado Esperado\n- **Resultado Esperado (hipótese):** O usuário permanece autenticado ao retornar para a URL raiz, sendo mantido na sessão ativa.\n- **Resultado Observado:** O usuário **não** permaneceu autenticado — a tela de login foi reexibida.\n\n### Observação Importante\nConforme as regras do cenário, a origem da expectativa é **\"hypothesis\"** (hipótese), portanto este comportamento **não deve ser interpretado automaticamente como defeito**. A aplicação pode ter sido projetada para não manter sessão ao acessar a URL raiz diretamente. Recomenda-se que a equipe de produto avalie se o comportamento de sessão esperado está corretamente documentado como requisito.\n\n**Investigação concluída com sucesso.**\n",
+  "metrics": {
+    "inputTokens": 14225,
+    "outputTokens": 1195,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 6,
+    "durationMs": 26110,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 621,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 567,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 366,
+        "url": "https://www.saucedemo.com/inventory.html"
+      },
+      {
+        "step": 4,
+        "tool": "navigate",
+        "success": true,
+        "durationMs": 327,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 5,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-05-59-198Z\\QA-005\\evidence.png",
+  "error": null
+}

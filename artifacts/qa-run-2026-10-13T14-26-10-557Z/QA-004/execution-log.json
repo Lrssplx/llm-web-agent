@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-10-13T14:28:15.284Z",
+  "finalUrl": "https://www.saucedemo.com/",
+  "totalActions": 7,
+  "actions": [
+    {
+      "action": "navigate",
+      "success": true,
+      "durationMs": 790,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:51.374Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 3,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:53.365Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 351,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:55.411Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 3,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:57.275Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 615,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:28:01.114Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 320,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:28:02.944Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 3,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:28:03.973Z"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "timestamp": "2026-10-13T14:27:52.039Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:27:52.040Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:28:03.010Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:28:03.010Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageErrors": []
+}

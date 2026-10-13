@@ -1,0 +1,60 @@
+{
+  "id": "QA-002",
+  "title": "Login com usuário bloqueado (locked_out_user)",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O login é recusado e uma mensagem de erro informando que o usuário está bloqueado é exibida na tela. O usuário permanece na página de login.",
+  "expectationSource": "hypothesis",
+  "executionCompleted": true,
+  "status": "INCONCLUSIVE",
+  "evaluation": {
+    "scenarioId": "QA-002",
+    "status": "INCONCLUSIVE",
+    "expected": null,
+    "observed": null,
+    "reason": "Não há expectativa aprovada.",
+    "evaluatedAt": "2026-10-13T14:27:22.306Z"
+  },
+  "agentSummary": "Cenário QA-002 executado com sucesso. Ao tentar login com 'locked_out_user' e senha 'secret_sauce', a aplicação recusou o acesso e exibiu a mensagem de erro: \"Epic sadface: Sorry, this user has been locked out.\" O usuário permaneceu na página de login (https://www.saucedemo.com/), confirmando o comportamento esperado conforme a hipótese do cenário.",
+  "metrics": {
+    "inputTokens": 9555,
+    "outputTokens": 987,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 19206,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 672,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 569,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 331,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-26-10-557Z\\QA-002\\evidence.png",
+  "error": null,
+  "scenarioKey": null
+}

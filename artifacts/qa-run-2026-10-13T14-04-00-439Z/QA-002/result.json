@@ -1,0 +1,59 @@
+{
+  "id": "QA-002",
+  "title": "Login com senha incorreta exibe mensagem de erro",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O login não é realizado, o usuário permanece na página de login e uma mensagem de erro apropriada é exibida informando que as credenciais são inválidas.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-002",
+    "status": "PASS",
+    "expected": "Epic sadface: Username and password do not match any user in this service",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:05:03.152Z"
+  },
+  "agentSummary": "## Resultado da Execução — QA-002: Login com senha incorreta exibe mensagem de erro\n\n### ✅ Investigação concluída com sucesso\n\n---\n\n### Passos Executados:\n\n| # | Ação | Resultado Observado |\n|---|------|---------------------|\n| 1 | Campo `username` preenchido com `standard_user` | Campo aceito sem erros |\n| 2 | Campo `password` preenchido com `senha_errada_123` | Campo aceito sem erros |\n| 3 | Clique no botão de login | Requisição de autenticação enviada |\n| 4 | Observação da página resultante | Mensagem de erro exibida; usuário permanece na página de login |\n\n---\n\n### Comportamento Observado:\n\n- **URL após tentativa:** `https://www.saucedemo.com/` *(sem redirecionamento)*\n- **Título da página:** Swag Labs *(página de login)*\n- **Mensagem de erro exibida:**\n  > *\"Epic sadface: Username and password do not match any user in this service\"*\n- **Elemento de dismissão:** Um botão \"Dismiss error\" foi adicionado ao DOM, confirmando a exibição do componente de erro.\n- **Sessão iniciada:** ❌ Não — o usuário permaneceu na tela de login.\n\n---\n\n### Confronto com o Resultado Esperado:\n\n| Critério Esperado | Status |\n|---|---|\n| Login não é realizado | ✅ Confirmado |\n| Usuário permanece na página de login | ✅ Confirmado |\n| Mensagem de erro apropriada é exibida | ✅ Confirmado — *\"Username and password do not match any user in this service\"* |\n\n---\n\n### Veredicto do Cenário:\n**✅ PASSOU** — O comportamento da aplicação está em conformidade com o resultado esperado descrito no requisito. A mensagem de erro é clara, o redirecionamento não ocorre e a sessão não é criada.",
+  "metrics": {
+    "inputTokens": 9445,
+    "outputTokens": 929,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 19222,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 642,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 659,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 326,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-04-00-439Z\\QA-002\\evidence.png",
+  "error": null
+}

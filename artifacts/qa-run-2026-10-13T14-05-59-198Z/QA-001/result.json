@@ -1,0 +1,52 @@
+{
+  "id": "QA-001",
+  "title": "Login bem-sucedido com credenciais válidas",
+  "type": "positive",
+  "priority": "high",
+  "expectedResult": "O usuário é redirecionado para a página inicial do Swag Labs (listagem de produtos), a URL muda para '/inventory.html' e nenhuma mensagem de erro é exibida.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-001",
+    "status": "PASS",
+    "expected": "/inventory.html",
+    "observed": "https://www.saucedemo.com/inventory.html",
+    "reason": "URL corresponde ao critério.",
+    "evaluatedAt": "2026-10-13T14:06:41.051Z"
+  },
+  "agentSummary": "## Resultado do Cenário QA-001 — Login bem-sucedido com credenciais válidas\n\n### Status: ✅ PASSOU\n\n### Evidências coletadas:\n\n| Passo | Ação | Resultado Observado |\n|-------|------|---------------------|\n| 1 | Navegar para https://www.saucedemo.com/ | Página carregada com título \"Swag Labs\" ✅ |\n| 2 | Inserir `standard_user` no campo Username | Campo preenchido com sucesso ✅ |\n| 3 | Inserir `secret_sauce` no campo Password | Campo preenchido com sucesso ✅ |\n| 4 | Clicar no botão Login | Redirecionamento executado ✅ |\n| 5 | Observar URL e conteúdo da página | URL alterada para `/inventory.html`, listagem de 6 produtos exibida, sem erros ✅ |\n\n### Resultado Esperado vs. Observado:\n- **URL esperada:** `/inventory.html` → **Observada:** `https://www.saucedemo.com/inventory.html` ✅\n- **Listagem de produtos:** Exibida (Sauce Labs Backpack, Bike Light, Bolt T-Shirt, Fleece Jacket, Onesie, Test.allTheThings() T-Shirt) ✅\n- **Mensagem de erro:** Nenhuma exibida ✅\n\n### Conclusão:\nO comportamento da aplicação está **em conformidade com o requisito**. O login com credenciais válidas (`standard_user` / `secret_sauce`) redireciona corretamente o usuário para a página de inventário de produtos sem qualquer erro.",
+  "metrics": {
+    "inputTokens": 7996,
+    "outputTokens": 917,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 17739,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 657,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 591,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 365,
+        "url": "https://www.saucedemo.com/inventory.html"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-05-59-198Z\\QA-001\\evidence.png",
+  "error": null
+}

@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-10-13T14:22:39.814Z",
+  "feature": "Autenticação Swag Labs",
+  "objective": "Execute os testes de login do Swag Labs",
+  "baseUrl": "https://www.saucedemo.com/",
+  "totalScenarios": 2,
+  "mode": "regression",
+  "completedExecutions": 2,
+  "passed": 2,
+  "failed": 0,
+  "inconclusive": 0,
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "expectedResult": "Usuário redirecionado para a página de produtos.",
+      "expectationSource": "requirement",
+      "executionCompleted": true,
+      "status": "PASS",
+      "evaluation": {
+        "scenarioId": "QA-001",
+        "status": "PASS",
+        "expected": "/inventory.html",
+        "observed": "https://www.saucedemo.com/inventory.html",
+        "reason": "URL corresponde ao critério.",
+        "evaluatedAt": "2026-10-13T14:22:21.147Z"
+      },
+      "agentSummary": "Cenário QA-001 (LOGIN_VALID) executado com sucesso. O login com as credenciais standard_user / secret_sauce resultou no redirecionamento para https://www.saucedemo.com/inventory.html (página de produtos), conforme o resultado esperado pelo requisito. O teste PASSOU.",
+      "metrics": {
+        "inputTokens": 7518,
+        "outputTokens": 858,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 4,
+        "durationMs": 15637,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 643,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 587,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 367,
+            "url": "https://www.saucedemo.com/inventory.html"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-22-04-275Z\\QA-001\\evidence.png",
+      "error": null,
+      "scenarioKey": "LOGIN_VALID"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta",
+      "type": "negative",
+      "priority": "high",
+      "expectedResult": "Acesso negado com mensagem de credenciais inválidas.",
+      "expectationSource": "requirement",
+      "executionCompleted": true,
+      "status": "PASS",
+      "evaluation": {
+        "scenarioId": "QA-002",
+        "status": "PASS",
+        "expected": "Epic sadface: Username and password do not match any user in this service",
+        "observed": "Texto esperado visível.",
+        "reason": "Assertion de visibilidade atendida.",
+        "evaluatedAt": "2026-10-13T14:22:39.487Z"
+      },
+      "agentSummary": "Cenário QA-002 (LOGIN_INVALID_PASSWORD) executado com sucesso. Ao tentar login com usuário \"standard_user\" e senha \"senha_errada\", a aplicação negou o acesso, permaneceu na página de login e exibiu a mensagem: \"Epic sadface: Username and password do not match any user in this service\". Comportamento conforme o resultado esperado pelo requisito.",
+      "metrics": {
+        "inputTokens": 9003,
+        "outputTokens": 926,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 5,
+        "durationMs": 16818,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 672,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 592,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 319,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 3,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-22-04-275Z\\QA-002\\evidence.png",
+      "error": null,
+      "scenarioKey": "LOGIN_INVALID_PASSWORD"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "QA-004",
+  "title": "Login com campos obrigatórios em branco",
+  "type": "boundary",
+  "priority": "medium",
+  "expectedResult": "O login não é realizado e uma mensagem de erro solicitando o preenchimento dos campos obrigatórios é exibida.",
+  "expectationSource": "hypothesis",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-004",
+    "status": "PASS",
+    "expected": "Epic sadface: Username is required",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:07:45.130Z"
+  },
+  "agentSummary": "\n## Resultado do Cenário QA-004 — Login com campos obrigatórios em branco\n\n### Execução concluída com sucesso (investigação encerrada)\n\n---\n\n### Passos Executados:\n1. ✅ Navegação para https://www.saucedemo.com/ — Página carregada corretamente.\n2. ✅ Campos 'Username' e 'Password' mantidos em branco — Nenhum dado foi inserido.\n3. ✅ Botão 'Login' clicado com os campos vazios.\n4. ✅ Comportamento observado após o clique.\n\n---\n\n### Comportamento Observado:\n- A aplicação **não realizou o login**.\n- A URL permaneceu em `https://www.saucedemo.com/` (sem redirecionamento).\n- Uma **mensagem de erro** foi exibida: **\"Epic sadface: Username is required\"**\n- Um botão \"Dismiss error\" foi apresentado para fechar a mensagem.\n\n---\n\n### Resultado Esperado (hipótese):\n> O login não é realizado e uma mensagem de erro solicitando o preenchimento dos campos obrigatórios é exibida.\n\n---\n\n### Comparação:\n| Critério | Esperado | Observado | Conformidade |\n|---|---|---|---|\n| Login não realizado | Sim | Sim | ✅ Conforme |\n| Mensagem de erro exibida | Sim | Sim — \"Epic sadface: Username is required\" | ✅ Conforme |\n| Campo obrigatório indicado | Username (e/ou Password) | Apenas Username mencionado na mensagem | ⚠️ Parcial |\n\n---\n\n### Observação:\nA mensagem de erro indicou **somente** o campo `Username` como obrigatório, sem mencionar o campo `Password` simultaneamente. Isso pode ser um comportamento esperado de validação sequencial (valida campo a campo), mas vale registrar que a hipótese menciona \"campos obrigatórios\" no plural. Não se trata necessariamente de um defeito, pois validações sequenciais são comuns — no entanto, pode ser um ponto de atenção dependendo do requisito detalhado da aplicação.\n",
+  "metrics": {
+    "inputTokens": 7062,
+    "outputTokens": 965,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 23629,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "click",
+        "success": true,
+        "durationMs": 344,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-05-59-198Z\\QA-004\\evidence.png",
+  "error": null
+}

@@ -1,0 +1,59 @@
+{
+  "id": "QA-001",
+  "title": "Login bem-sucedido com credenciais válidas",
+  "type": "positive",
+  "priority": "high",
+  "expectedResult": "O usuário é autenticado com sucesso, redirecionado para a página inicial do Swag Labs (página de inventário de produtos) e nenhuma mensagem de erro é exibida.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "INCONCLUSIVE",
+  "evaluation": {
+    "scenarioId": "QA-001",
+    "status": "INCONCLUSIVE",
+    "expected": null,
+    "observed": null,
+    "reason": "Não há expectativa aprovada.",
+    "evaluatedAt": "2026-10-13T14:04:42.362Z"
+  },
+  "agentSummary": "Cenário QA-001 executado com sucesso. O login com credenciais válidas (standard_user / secret_sauce) funcionou conforme esperado: o usuário foi autenticado, redirecionado para https://www.saucedemo.com/inventory.html (página de inventário de produtos) e nenhuma mensagem de erro foi exibida. O resultado real está em conformidade com o resultado esperado definido no requisito.",
+  "metrics": {
+    "inputTokens": 11267,
+    "outputTokens": 875,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 16090,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 651,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 590,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 376,
+        "url": "https://www.saucedemo.com/inventory.html"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 4,
+        "url": "https://www.saucedemo.com/inventory.html"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-04-00-439Z\\QA-001\\evidence.png",
+  "error": null
+}

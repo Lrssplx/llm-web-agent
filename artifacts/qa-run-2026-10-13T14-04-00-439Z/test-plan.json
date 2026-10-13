@@ -1,0 +1,124 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T14:04:24.931Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste o login com credenciais válidas e inválidas",
+  "feature": "Login - SauceDemo (Swag Labs)",
+  "objective": "Verificar o comportamento do fluxo de login com credenciais válidas e inválidas, garantindo acesso correto para usuários legítimos e exibição de mensagem de erro para credenciais incorretas.",
+  "assumptions": [
+    "A URL https://www.saucedemo.com/ está acessível e operacional durante a execução dos testes.",
+    "O usuário 'standard_user' com senha 'secret_sauce' é uma credencial válida e ativa conforme descrito nos requisitos.",
+    "A 'página inicial do Swag Labs' mencionada nos requisitos refere-se à página de inventário de produtos exibida após login bem-sucedido.",
+    "A mensagem de erro exibida para senha incorreta não foi especificada textualmente nos requisitos; seu conteúdo exato será tratado como hipótese.",
+    "Não há requisito explícito sobre bloqueio de conta após múltiplas tentativas falhas; cenários relacionados são exploratórios.",
+    "O comportamento para campos em branco não foi especificado nos requisitos e será tratado como hipótese."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login bem-sucedido com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "O navegador está aberto na URL https://www.saucedemo.com/",
+        "Nenhuma sessão de usuário está ativa (usuário não está logado)"
+      ],
+      "steps": [
+        "Localizar o campo de texto com o identificador 'username' na página de login.",
+        "Inserir o valor 'standard_user' no campo 'username'.",
+        "Localizar o campo de texto com o identificador 'password' na página de login.",
+        "Inserir o valor 'secret_sauce' no campo 'password'.",
+        "Clicar no botão de login (identificado como 'Login').",
+        "Observar a URL e o conteúdo da página resultante."
+      ],
+      "expectedResult": "O usuário é autenticado com sucesso, redirecionado para a página inicial do Swag Labs (página de inventário de produtos) e nenhuma mensagem de erro é exibida.",
+      "expectationSource": "requirement",
+      "risk": "Falha no acesso legítimo impede o uso completo da aplicação por todos os usuários.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta exibe mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "O navegador está aberto na URL https://www.saucedemo.com/",
+        "Nenhuma sessão de usuário está ativa"
+      ],
+      "steps": [
+        "Localizar o campo 'username' e inserir o valor 'standard_user'.",
+        "Localizar o campo 'password' e inserir uma senha incorreta, por exemplo: 'senha_errada_123'.",
+        "Clicar no botão de login.",
+        "Observar a página resultante em busca de mensagens de erro."
+      ],
+      "expectedResult": "O login não é realizado, o usuário permanece na página de login e uma mensagem de erro apropriada é exibida informando que as credenciais são inválidas.",
+      "expectationSource": "requirement",
+      "risk": "Ausência de feedback de erro pode confundir o usuário ou indicar falha na validação de segurança.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com usuário inexistente",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "O navegador está aberto na URL https://www.saucedemo.com/",
+        "Nenhuma sessão de usuário está ativa"
+      ],
+      "steps": [
+        "Localizar o campo 'username' e inserir um valor inexistente, por exemplo: 'usuario_invalido_xyz'.",
+        "Localizar o campo 'password' e inserir qualquer valor, por exemplo: 'qualquer_senha'.",
+        "Clicar no botão de login.",
+        "Observar a página resultante em busca de mensagens de erro."
+      ],
+      "expectedResult": "O login não é realizado e uma mensagem de erro é exibida. A mensagem não deve diferenciar se o erro é no usuário ou na senha (para evitar enumeração de usuários).",
+      "expectationSource": "hypothesis",
+      "risk": "Mensagens de erro distintas para usuário inválido vs. senha inválida podem expor informações sensíveis sobre usuários cadastrados.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Tentativa de login com campos em branco",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "O navegador está aberto na URL https://www.saucedemo.com/",
+        "Nenhuma sessão de usuário está ativa"
+      ],
+      "steps": [
+        "Deixar os campos 'username' e 'password' completamente vazios.",
+        "Clicar no botão de login.",
+        "Observar a resposta da aplicação."
+      ],
+      "expectedResult": "O sistema não realiza o login e exibe uma mensagem de validação informando que os campos obrigatórios devem ser preenchidos.",
+      "expectationSource": "hypothesis",
+      "risk": "Submissão de formulário vazio sem validação pode gerar erros inesperados ou comportamento indefinido na aplicação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Verificar persistência de sessão após login bem-sucedido",
+      "type": "exploratory",
+      "priority": "medium",
+      "preconditions": [
+        "O usuário realizou login com sucesso utilizando 'standard_user' e 'secret_sauce'",
+        "A página de inventário do Swag Labs está sendo exibida"
+      ],
+      "steps": [
+        "Após o login bem-sucedido, copiar a URL atual da página de inventário.",
+        "Abrir uma nova aba no mesmo navegador e colar a URL da página de inventário.",
+        "Observar se a página de inventário é exibida ou se o usuário é redirecionado para a tela de login."
+      ],
+      "expectedResult": "A sessão é mantida na nova aba e a página de inventário é exibida sem necessidade de novo login, indicando gerenciamento correto de sessão.",
+      "expectationSource": "hypothesis",
+      "risk": "Falha no gerenciamento de sessão pode causar experiência degradada ao usuário ou vulnerabilidades de segurança.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1117,
+    "outputTokens": 1439,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

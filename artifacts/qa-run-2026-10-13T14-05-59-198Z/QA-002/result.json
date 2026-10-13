@@ -1,0 +1,59 @@
+{
+  "id": "QA-002",
+  "title": "Login com senha incorreta exibe mensagem de erro",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O login é recusado, o usuário permanece na página de login e uma mensagem de erro informando credenciais inválidas é exibida.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-002",
+    "status": "PASS",
+    "expected": "Epic sadface: Username and password do not match any user in this service",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:06:59.039Z"
+  },
+  "agentSummary": "## Resultado do Cenário QA-002 — Login com senha incorreta\n\n### Execução dos Passos:\n\n| # | Passo | Status |\n|---|-------|--------|\n| 1 | Navegação para https://www.saucedemo.com/ | ✅ Concluído |\n| 2 | Campo 'Username' preenchido com 'standard_user' | ✅ Concluído |\n| 3 | Campo 'Password' preenchido com 'senha_errada' | ✅ Concluído |\n| 4 | Botão 'Login' clicado | ✅ Concluído |\n| 5 | Mensagem de erro observada na página | ✅ Confirmado |\n\n### Comportamento Observado:\n- A URL permaneceu em `https://www.saucedemo.com/` — o usuário **não foi redirecionado**.\n- Uma mensagem de erro foi exibida: **\"Epic sadface: Username and password do not match any user in this service\"**\n- Um botão \"Dismiss error\" ficou disponível para fechar o aviso.\n- O formulário de login continuou visível na página.\n\n### Comparação com Resultado Esperado:\n\n| Critério | Esperado | Observado | Conformidade |\n|----------|----------|-----------|--------------|\n| Login recusado | Sim | Sim | ✅ |\n| Usuário permanece na página de login | Sim | Sim | ✅ |\n| Mensagem de erro exibida | Sim | Sim — \"Epic sadface: Username and password do not match any user in this service\" | ✅ |\n\n### Conclusão:\nO comportamento da aplicação está **em conformidade com o resultado esperado**. O cenário QA-002 foi executado com sucesso e a funcionalidade se comporta corretamente ao rejeitar credenciais inválidas e exibir mensagem de erro ao usuário.",
+  "metrics": {
+    "inputTokens": 9600,
+    "outputTokens": 911,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 16514,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 647,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 563,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 323,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 2,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-05-59-198Z\\QA-002\\evidence.png",
+  "error": null
+}

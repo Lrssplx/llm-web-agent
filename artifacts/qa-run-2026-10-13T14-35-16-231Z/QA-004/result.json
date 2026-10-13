@@ -1,0 +1,46 @@
+{
+  "id": "QA-004",
+  "title": "Login com campos vazios",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "A aplicação informa que Username é obrigatório.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-004",
+    "status": "PASS",
+    "expected": "Epic sadface: Username is required",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:36:28.132Z"
+  },
+  "agentSummary": "Cenário QA-004 (LOGIN_EMPTY_FIELDS) executado com sucesso. Ao clicar no botão Login com Username e Password vazios, a aplicação exibiu a mensagem \"Epic sadface: Username is required\", confirmando que o campo Username é validado como obrigatório — comportamento em conformidade com o resultado esperado definido no requisito.",
+  "metrics": {
+    "inputTokens": 4855,
+    "outputTokens": 688,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 3,
+    "durationMs": 14386,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "click",
+        "success": true,
+        "durationMs": 355,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 4,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-35-16-231Z\\QA-004\\evidence.png",
+  "error": null,
+  "scenarioKey": "LOGIN_EMPTY_FIELDS"
+}

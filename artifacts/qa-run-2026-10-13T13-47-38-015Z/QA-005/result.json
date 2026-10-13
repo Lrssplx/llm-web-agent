@@ -1,0 +1,15 @@
+{
+  "id": "QA-005",
+  "title": "Login com credenciais válidas seguido de verificação de persistência de sessão",
+  "type": "exploratory",
+  "priority": "medium",
+  "expectedResult": "Após recarregar a página, o usuário permanece autenticado e a página de inventário continua sendo exibida sem redirecionar para o login.",
+  "expectationSource": "hypothesis",
+  "executionCompleted": false,
+  "status": "INCONCLUSIVE",
+  "evaluation": null,
+  "agentSummary": "",
+  "metrics": null,
+  "evidence": null,
+  "error": "browserType.launch: Executable doesn't exist at C:\\Users\\Desktop\\AppData\\Local\\ms-playwright\\chromium-1248\\chrome-win64\\chrome.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+}

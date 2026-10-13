@@ -1,0 +1,124 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:30:46.182Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste a funcionalidade de login com credenciais válidas, senha incorreta e campos obrigatórios",
+  "feature": "Login - SauceDemo",
+  "objective": "Verificar o comportamento da funcionalidade de login para credenciais válidas, senha incorreta e campos obrigatórios vazios, priorizando cenários de maior risco.",
+  "assumptions": [
+    "A mensagem exata de boas-vindas após login válido não foi especificada nos requisitos; assume-se que o usuário é redirecionado para uma página de produtos como indicativo de sucesso.",
+    "A mensagem exata exibida para credenciais inválidas não foi detalhada; assume-se que é uma mensagem de erro visível na tela.",
+    "Não foram fornecidas credenciais válidas reais; os cenários utilizam credenciais publicamente conhecidas da aplicação de demonstração (standard_user / secret_sauce).",
+    "Não há requisito explícito sobre o comportamento para campos vazios; o cenário correspondente é tratado como hipótese.",
+    "A aplicação pode exibir mensagens de erro distintas para senha incorreta versus campos vazios; isso não foi especificado nos requisitos."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas deve redirecionar para a página inicial",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos Username e Password"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e preencher com 'standard_user'",
+        "Localizar o campo 'Password' e preencher com 'secret_sauce'",
+        "Clicar no botão 'Login'",
+        "Verificar a URL atual e o conteúdo da página carregada"
+      ],
+      "expectedResult": "O usuário é redirecionado para a página de produtos (ex: /inventory.html) e a página exibe conteúdo autenticado, indicando login bem-sucedido.",
+      "expectationSource": "hypothesis",
+      "risk": "Falha no fluxo principal impede o uso de toda a aplicação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta deve negar o acesso e exibir mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e preencher com 'standard_user'",
+        "Localizar o campo 'Password' e preencher com 'senha_errada_123'",
+        "Clicar no botão 'Login'",
+        "Verificar se o acesso foi negado e se uma mensagem de erro está visível na página"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida indicando credenciais inválidas.",
+      "expectationSource": "requirement",
+      "risk": "Permitir acesso com senha incorreta representa falha crítica de segurança.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com campos obrigatórios vazios deve impedir o envio e exibir mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos Username e Password em branco"
+      ],
+      "steps": [
+        "Certificar-se de que os campos 'Username' e 'Password' estão vazios",
+        "Clicar no botão 'Login'",
+        "Verificar se o formulário foi submetido ou bloqueado",
+        "Verificar se uma mensagem de erro está visível na página"
+      ],
+      "expectedResult": "O formulário não é submetido ou o acesso é negado, e uma mensagem de erro informando que os campos são obrigatórios é exibida.",
+      "expectationSource": "hypothesis",
+      "risk": "Campos vazios submetidos sem validação podem causar erros inesperados no servidor ou comportamento indefinido.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Login com usuário inexistente deve negar o acesso",
+      "type": "negative",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e preencher com 'usuario_inexistente'",
+        "Localizar o campo 'Password' e preencher com 'qualquer_senha'",
+        "Clicar no botão 'Login'",
+        "Verificar se o acesso foi negado e se uma mensagem de erro está visível"
+      ],
+      "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida.",
+      "expectationSource": "requirement",
+      "risk": "Usuários não cadastrados não devem ter acesso à aplicação; falha aqui indica brecha de autenticação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com apenas o campo Username preenchido deve exibir mensagem de erro",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e preencher com 'standard_user'",
+        "Deixar o campo 'Password' vazio",
+        "Clicar no botão 'Login'",
+        "Verificar se o formulário foi submetido ou bloqueado",
+        "Verificar se uma mensagem de erro está visível na página"
+      ],
+      "expectedResult": "O acesso é negado e uma mensagem de erro informando que a senha é obrigatória é exibida, sem redirecionar o usuário.",
+      "expectationSource": "hypothesis",
+      "risk": "Submissão parcial do formulário pode revelar comportamento inconsistente de validação ou expor informações sobre usuários existentes.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1079,
+    "outputTokens": 1337,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

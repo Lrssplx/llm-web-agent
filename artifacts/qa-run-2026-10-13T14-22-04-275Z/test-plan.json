@@ -1,0 +1,58 @@
+{
+  "version": "2.1",
+  "createdAt": "2026-10-13T14:22:04.276Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Execute os testes de login do Swag Labs",
+  "feature": "Autenticação Swag Labs",
+  "objective": "Execute os testes de login do Swag Labs",
+  "assumptions": [],
+  "scenarios": [
+    {
+      "scenarioKey": "LOGIN_VALID",
+      "title": "Login com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Aplicação disponível",
+        "Usuário de demonstração existente"
+      ],
+      "steps": [
+        "Preencher Username com standard_user",
+        "Preencher Password com secret_sauce",
+        "Clicar no botão Login",
+        "Observar o resultado do login"
+      ],
+      "expectedResult": "Usuário redirecionado para a página de produtos.",
+      "expectationSource": "requirement",
+      "expectation": {
+        "type": "url_contains",
+        "value": "/inventory.html"
+      },
+      "id": "QA-001",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "scenarioKey": "LOGIN_INVALID_PASSWORD",
+      "title": "Login com senha incorreta",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Aplicação disponível"
+      ],
+      "steps": [
+        "Preencher Username com standard_user",
+        "Preencher Password com senha_errada",
+        "Clicar no botão Login",
+        "Observar a mensagem de erro"
+      ],
+      "expectedResult": "Acesso negado com mensagem de credenciais inválidas.",
+      "expectationSource": "requirement",
+      "expectation": {
+        "type": "text_visible",
+        "value": "Epic sadface: Username and password do not match any user in this service"
+      },
+      "id": "QA-002",
+      "status": "NOT_EXECUTED"
+    }
+  ]
+}

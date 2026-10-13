@@ -1,0 +1,51 @@
+{
+  "id": "QA-002",
+  "title": "Login com senha incorreta deve negar o acesso e exibir mensagem de erro",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O acesso é negado, o usuário permanece na página de login e uma mensagem de erro é exibida indicando credenciais inválidas.",
+  "expectationSource": "requirement",
+  "status": "INCONCLUSIVE",
+  "executionCompleted": true,
+  "agentSummary": "\n## Resultado da Execução — QA-002\n\n### Cenário: Login com senha incorreta deve negar o acesso e exibir mensagem de erro\n**Tipo:** Negativo\n\n---\n\n### Passos Executados:\n\n| # | Passo | Status |\n|---|-------|--------|\n| 1 | Campo 'Username' preenchido com `standard_user` | ✅ Executado |\n| 2 | Campo 'Password' preenchido com `senha_errada_123` | ✅ Executado |\n| 3 | Botão 'Login' clicado | ✅ Executado |\n| 4 | Verificação do comportamento pós-submissão | ✅ Executado |\n\n---\n\n### Comportamento Observado:\n\n- **URL após o clique:** `https://www.saucedemo.com/` (permaneceu na mesma página)\n- **Acesso negado:** ✅ Sim — o usuário **não foi redirecionado** para a área autenticada\n- **Mensagem de erro exibida:** ✅ Sim — a seguinte mensagem apareceu na tela:\n\n  > *\"Epic sadface: Username and password do not match any user in this service\"*\n\n- **Botão de fechar erro (\"Dismiss error\"):** Apareceu na interface, confirmando a exibição do componente de erro\n\n---\n\n### Comparação com Resultado Esperado:\n\n| Critério | Esperado | Observado | Resultado |\n|----------|----------|-----------|-----------|\n| Acesso negado | Sim | Sim | ✅ Conforme |\n| Usuário permanece na página de login | Sim | Sim (URL inalterada) | ✅ Conforme |\n| Mensagem de erro visível | Sim | Sim (\"Username and password do not match...\") | ✅ Conforme |\n\n---\n\n### Veredicto do Teste:\n**✅ PASSOU** — O comportamento da aplicação está **em conformidade** com o resultado esperado descrito no cenário QA-002. O sistema rejeitou corretamente as credenciais inválidas, manteve o usuário na página de login e exibiu uma mensagem de erro clara e informativa.\n",
+  "metrics": {
+    "inputTokens": 9601,
+    "outputTokens": 953,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 19010,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 626,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 666,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 329,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 4,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T13-30-24-569Z\\QA-002\\evidence.png",
+  "error": null
+}

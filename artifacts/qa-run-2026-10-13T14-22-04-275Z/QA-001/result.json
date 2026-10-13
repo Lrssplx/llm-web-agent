@@ -1,0 +1,53 @@
+{
+  "id": "QA-001",
+  "title": "Login com credenciais válidas",
+  "type": "positive",
+  "priority": "high",
+  "expectedResult": "Usuário redirecionado para a página de produtos.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-001",
+    "status": "PASS",
+    "expected": "/inventory.html",
+    "observed": "https://www.saucedemo.com/inventory.html",
+    "reason": "URL corresponde ao critério.",
+    "evaluatedAt": "2026-10-13T14:22:21.147Z"
+  },
+  "agentSummary": "Cenário QA-001 (LOGIN_VALID) executado com sucesso. O login com as credenciais standard_user / secret_sauce resultou no redirecionamento para https://www.saucedemo.com/inventory.html (página de produtos), conforme o resultado esperado pelo requisito. O teste PASSOU.",
+  "metrics": {
+    "inputTokens": 7518,
+    "outputTokens": 858,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 15637,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 643,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 587,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 367,
+        "url": "https://www.saucedemo.com/inventory.html"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-22-04-275Z\\QA-001\\evidence.png",
+  "error": null,
+  "scenarioKey": "LOGIN_VALID"
+}

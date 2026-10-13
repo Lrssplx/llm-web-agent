@@ -1,0 +1,124 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:47:58.023Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste o login com credenciais válidas e inválidas",
+  "feature": "Login - SauceDemo (swag labs)",
+  "objective": "Verificar o comportamento do fluxo de login com credenciais válidas e inválidas, assegurando que o acesso seja concedido apenas a usuários autenticados corretamente e que mensagens de erro adequadas sejam exibidas em caso de falha.",
+  "assumptions": [
+    "A aplicação está acessível em https://www.saucedemo.com/ durante a execução dos testes.",
+    "As credenciais 'standard_user' / 'secret_sauce' são válidas e funcionais no ambiente de teste.",
+    "A mensagem de erro exibida para senha incorreta não foi especificada textualmente nos requisitos; o conteúdo exato é tratado como hipótese.",
+    "Não foram fornecidos requisitos sobre bloqueio de conta após múltiplas tentativas falhas; esse comportamento é tratado como hipótese.",
+    "A 'página inicial do Swag Labs' é interpretada como a página de inventário de produtos exibida após login bem-sucedido."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login bem-sucedido com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Usuário está na página de login em https://www.saucedemo.com/",
+        "Nenhuma sessão autenticada está ativa"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e inserir o valor 'standard_user'.",
+        "Localizar o campo 'Password' e inserir o valor 'secret_sauce'.",
+        "Clicar no botão 'Login'.",
+        "Observar a URL e o conteúdo da página resultante."
+      ],
+      "expectedResult": "O usuário é redirecionado para a página inicial do Swag Labs (inventário de produtos), confirmando que o login foi bem-sucedido.",
+      "expectationSource": "requirement",
+      "risk": "Alto — falha neste cenário impede o acesso de usuários legítimos ao sistema.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta exibe mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Usuário está na página de login em https://www.saucedemo.com/",
+        "Nenhuma sessão autenticada está ativa"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e inserir o valor 'standard_user'.",
+        "Localizar o campo 'Password' e inserir um valor inválido, por exemplo 'senha_errada'.",
+        "Clicar no botão 'Login'.",
+        "Observar se uma mensagem de erro é exibida na página."
+      ],
+      "expectedResult": "Uma mensagem de erro é exibida indicando falha na autenticação; o usuário permanece na página de login e não obtém acesso ao sistema.",
+      "expectationSource": "requirement",
+      "risk": "Alto — ausência de feedback de erro pode confundir o usuário e ocultar falhas de segurança.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com usuário inexistente",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Usuário está na página de login em https://www.saucedemo.com/",
+        "Nenhuma sessão autenticada está ativa"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e inserir um valor inexistente, por exemplo 'usuario_invalido'.",
+        "Localizar o campo 'Password' e inserir qualquer valor, por exemplo 'qualquer_senha'.",
+        "Clicar no botão 'Login'.",
+        "Observar se uma mensagem de erro é exibida na página."
+      ],
+      "expectedResult": "Uma mensagem de erro é exibida; o usuário não é autenticado e permanece na página de login.",
+      "expectationSource": "hypothesis",
+      "risk": "Alto — permitir acesso com usuário inexistente representaria grave falha de segurança.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Tentativa de login com campos obrigatórios em branco",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Usuário está na página de login em https://www.saucedemo.com/",
+        "Nenhuma sessão autenticada está ativa"
+      ],
+      "steps": [
+        "Deixar o campo 'Username' vazio.",
+        "Deixar o campo 'Password' vazio.",
+        "Clicar no botão 'Login'.",
+        "Observar o comportamento da aplicação."
+      ],
+      "expectedResult": "A aplicação exibe uma mensagem de erro informando que os campos são obrigatórios; nenhuma autenticação é realizada.",
+      "expectationSource": "hypothesis",
+      "risk": "Médio — submissão de formulário vazio pode expor comportamentos inesperados ou erros não tratados.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com credenciais válidas seguido de verificação de persistência de sessão",
+      "type": "exploratory",
+      "priority": "medium",
+      "preconditions": [
+        "Usuário está na página de login em https://www.saucedemo.com/",
+        "Nenhuma sessão autenticada está ativa"
+      ],
+      "steps": [
+        "Inserir 'standard_user' no campo 'Username'.",
+        "Inserir 'secret_sauce' no campo 'Password'.",
+        "Clicar no botão 'Login'.",
+        "Confirmar que a página de inventário é exibida.",
+        "Recarregar a página e observar se a sessão é mantida."
+      ],
+      "expectedResult": "Após recarregar a página, o usuário permanece autenticado e a página de inventário continua sendo exibida sem redirecionar para o login.",
+      "expectationSource": "hypothesis",
+      "risk": "Médio — perda inesperada de sessão após recarregamento prejudica a experiência do usuário.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1117,
+    "outputTokens": 1319,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

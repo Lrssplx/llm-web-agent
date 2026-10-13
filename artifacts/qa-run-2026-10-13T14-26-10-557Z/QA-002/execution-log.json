@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-10-13T14:27:22.420Z",
+  "finalUrl": "https://www.saucedemo.com/",
+  "totalActions": 5,
+  "actions": [
+    {
+      "action": "navigate",
+      "success": true,
+      "durationMs": 810,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:03.100Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 672,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:06.072Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 569,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:08.411Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 331,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:10.508Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 3,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:27:12.186Z"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "timestamp": "2026-10-13T14:27:03.751Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:27:03.760Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:27:14.728Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:27:14.748Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:27:16.968Z",
+      "message": "Access to fetch at 'https://submit.backtrace.io/UNIVERSE/TOKEN/json' from origin 'https://www.saucedemo.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+    },
+    {
+      "timestamp": "2026-10-13T14:27:16.969Z",
+      "message": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "pageErrors": []
+}

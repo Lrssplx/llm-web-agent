@@ -1,0 +1,44 @@
+{
+  "id": "QA-005",
+  "title": "Login com apenas o campo Username preenchido deve exibir mensagem de erro",
+  "type": "boundary",
+  "priority": "medium",
+  "expectedResult": "O acesso é negado e uma mensagem de erro informando que a senha é obrigatória é exibida, sem redirecionar o usuário.",
+  "expectationSource": "hypothesis",
+  "status": "INCONCLUSIVE",
+  "executionCompleted": true,
+  "agentSummary": "Cenário QA-005 executado com sucesso. Ao preencher apenas o campo Username com 'standard_user' e deixar o Password vazio, ao clicar em Login a aplicação bloqueou a submissão, manteve o usuário na página de login (URL inalterada) e exibiu a mensagem de erro: \"Epic sadface: Password is required\". O comportamento observado confirma a hipótese do cenário — o acesso é negado e a mensagem de senha obrigatória é exibida corretamente.",
+  "metrics": {
+    "inputTokens": 7333,
+    "outputTokens": 988,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 18113,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 611,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "click",
+        "success": true,
+        "durationMs": 322,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 2,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T13-30-24-569Z\\QA-005\\evidence.png",
+  "error": null
+}

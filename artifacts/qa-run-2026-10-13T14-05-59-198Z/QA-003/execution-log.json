@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-10-13T14:07:20.186Z",
+  "finalUrl": "https://www.saucedemo.com/",
+  "totalActions": 5,
+  "actions": [
+    {
+      "action": "navigate",
+      "success": true,
+      "durationMs": 778,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:07:00.441Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 719,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:07:03.756Z"
+    },
+    {
+      "action": "type",
+      "success": true,
+      "durationMs": 616,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:07:06.010Z"
+    },
+    {
+      "action": "click",
+      "success": true,
+      "durationMs": 326,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:07:07.814Z"
+    },
+    {
+      "action": "extract_text",
+      "success": true,
+      "durationMs": 2,
+      "url": "https://www.saucedemo.com/",
+      "timestamp": "2026-10-13T14:07:10.036Z"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "timestamp": "2026-10-13T14:07:01.103Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:07:01.132Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:07:10.848Z",
+      "message": "Access to fetch at 'https://submit.backtrace.io/UNIVERSE/TOKEN/json' from origin 'https://www.saucedemo.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+    },
+    {
+      "timestamp": "2026-10-13T14:07:10.848Z",
+      "message": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "timestamp": "2026-10-13T14:07:12.090Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    },
+    {
+      "timestamp": "2026-10-13T14:07:12.103Z",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageErrors": []
+}

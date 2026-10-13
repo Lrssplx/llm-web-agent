@@ -1,0 +1,128 @@
+{
+  "version": "2.0",
+  "createdAt": "2026-10-13T13:50:01.498Z",
+  "baseUrl": "https://www.saucedemo.com/",
+  "task": "Teste o login com credenciais válidas e inválidas",
+  "feature": "Login - SauceDemo",
+  "objective": "Verificar o comportamento do login com credenciais válidas e inválidas na aplicação Swag Labs (saucedemo.com), garantindo acesso correto para usuários legítimos e bloqueio com mensagem de erro para tentativas inválidas.",
+  "assumptions": [
+    "As credenciais 'standard_user' / 'secret_sauce' são válidas e funcionais no momento da execução dos testes.",
+    "A mensagem de erro exibida para senha incorreta não foi especificada nos requisitos; seu conteúdo exato é tratado como hipótese.",
+    "A 'página inicial do Swag Labs' é interpretada como a página de listagem de produtos (/inventory.html), pois não há descrição detalhada do estado pós-login nos requisitos.",
+    "Não há requisitos explícitos sobre bloqueio de conta por tentativas repetidas; cenários relacionados são exploratórios.",
+    "O comportamento para username inválido (não apenas senha) não foi descrito nos requisitos; cenários sobre isso são hipóteses."
+  ],
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login bem-sucedido com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos de username e password"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e digitar 'standard_user'",
+        "Localizar o campo 'Password' e digitar 'secret_sauce'",
+        "Clicar no botão 'Login'",
+        "Verificar a URL atual da página",
+        "Verificar se o título ou cabeçalho 'Swag Labs' está visível",
+        "Verificar se a listagem de produtos está exibida na tela"
+      ],
+      "expectedResult": "O usuário é redirecionado para a página inicial do Swag Labs (/inventory.html), com a listagem de produtos visível e sem mensagens de erro.",
+      "expectationSource": "requirement",
+      "risk": "Falha no acesso legítimo impede uso completo da aplicação; risco alto.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta exibe mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível com os campos de username e password"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e digitar 'standard_user'",
+        "Localizar o campo 'Password' e digitar uma senha incorreta, por exemplo 'senha_errada'",
+        "Clicar no botão 'Login'",
+        "Verificar se o usuário permanece na página de login",
+        "Verificar se uma mensagem de erro está visível na tela"
+      ],
+      "expectedResult": "O login é negado, o usuário permanece na página de login e uma mensagem de erro apropriada é exibida indicando falha na autenticação.",
+      "expectationSource": "requirement",
+      "risk": "Ausência de bloqueio ou mensagem de erro pode indicar falha de segurança crítica.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-003",
+      "title": "Login com username inválido e senha válida exibe mensagem de erro",
+      "type": "negative",
+      "priority": "high",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e digitar um usuário inexistente, por exemplo 'usuario_invalido'",
+        "Localizar o campo 'Password' e digitar 'secret_sauce'",
+        "Clicar no botão 'Login'",
+        "Verificar se o usuário permanece na página de login",
+        "Verificar se uma mensagem de erro está visível na tela"
+      ],
+      "expectedResult": "O login é negado, o usuário permanece na página de login e uma mensagem de erro é exibida.",
+      "expectationSource": "hypothesis",
+      "risk": "Permitir acesso com usuário desconhecido seria uma vulnerabilidade grave de autenticação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-004",
+      "title": "Login com campos vazios exibe mensagem de erro",
+      "type": "boundary",
+      "priority": "medium",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Deixar o campo 'Username' vazio",
+        "Deixar o campo 'Password' vazio",
+        "Clicar no botão 'Login'",
+        "Verificar se o usuário permanece na página de login",
+        "Verificar se uma mensagem de erro ou aviso de campo obrigatório está visível"
+      ],
+      "expectedResult": "O sistema não realiza o login e exibe uma mensagem de erro indicando que os campos são obrigatórios ou que as credenciais são inválidas.",
+      "expectationSource": "hypothesis",
+      "risk": "Submissão vazia sem tratamento pode expor comportamentos inesperados da aplicação.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "QA-005",
+      "title": "Login com senha correta mas em caixa diferente (case sensitivity)",
+      "type": "exploratory",
+      "priority": "low",
+      "preconditions": [
+        "Acessar a URL https://www.saucedemo.com/",
+        "A página de login deve estar visível"
+      ],
+      "steps": [
+        "Localizar o campo 'Username' e digitar 'standard_user'",
+        "Localizar o campo 'Password' e digitar 'Secret_Sauce' (com 'S' maiúsculo)",
+        "Clicar no botão 'Login'",
+        "Verificar se o login foi realizado ou se uma mensagem de erro foi exibida"
+      ],
+      "expectedResult": "O login é negado e uma mensagem de erro é exibida, indicando que a senha é case-sensitive.",
+      "expectationSource": "hypothesis",
+      "risk": "Se o sistema aceitar variações de capitalização, a política de senhas pode estar mais fraca do que o esperado.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "metrics": {
+    "inputTokens": 1117,
+    "outputTokens": 1370,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0
+  }
+}

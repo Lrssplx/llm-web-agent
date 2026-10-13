@@ -1,0 +1,44 @@
+{
+  "id": "QA-003",
+  "title": "Login com campos obrigatórios vazios deve impedir o envio e exibir mensagem de erro",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O formulário não é submetido ou o acesso é negado, e uma mensagem de erro informando que os campos são obrigatórios é exibida.",
+  "expectationSource": "hypothesis",
+  "status": "INCONCLUSIVE",
+  "executionCompleted": true,
+  "agentSummary": "Cenário QA-003 executado com sucesso. Ao clicar em Login com os campos Username e Password vazios, o formulário não foi submetido (URL permaneceu em https://www.saucedemo.com/) e a mensagem de erro \"Epic sadface: Username is required\" foi exibida. O comportamento observado está alinhado com a hipótese do resultado esperado: o sistema bloqueia o envio e informa que campos obrigatórios estão vazios.",
+  "metrics": {
+    "inputTokens": 7335,
+    "outputTokens": 999,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 18958,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 3,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "click",
+        "success": true,
+        "durationMs": 349,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 2,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T13-30-24-569Z\\QA-003\\evidence.png",
+  "error": null
+}

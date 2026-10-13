@@ -1,0 +1,59 @@
+{
+  "id": "QA-003",
+  "title": "Login com usuário inexistente",
+  "type": "negative",
+  "priority": "high",
+  "expectedResult": "O login é recusado, o usuário permanece na página de login e uma mensagem de erro é exibida indicando que as credenciais são inválidas.",
+  "expectationSource": "hypothesis",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-003",
+    "status": "PASS",
+    "expected": "Epic sadface: Username and password do not match any user in this service",
+    "observed": "Texto esperado visível.",
+    "reason": "Assertion de visibilidade atendida.",
+    "evaluatedAt": "2026-10-13T14:07:20.059Z"
+  },
+  "agentSummary": "Cenário QA-003 executado com sucesso. Ao tentar login com usuário inexistente ('usuario_invalido') e senha arbitrária ('qualquer_senha'), a aplicação recusou o acesso, manteve o usuário na página de login (https://www.saucedemo.com/) e exibiu a mensagem de erro: \"Epic sadface: Username and password do not match any user in this service\". O comportamento está em conformidade com o resultado esperado.",
+  "metrics": {
+    "inputTokens": 9639,
+    "outputTokens": 984,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 5,
+    "durationMs": 19618,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 719,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 616,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 326,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 4,
+        "tool": "extract_text",
+        "success": true,
+        "durationMs": 2,
+        "url": "https://www.saucedemo.com/"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-05-59-198Z\\QA-003\\evidence.png",
+  "error": null
+}

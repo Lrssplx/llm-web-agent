@@ -1,0 +1,53 @@
+{
+  "id": "QA-001",
+  "title": "Login com credenciais válidas",
+  "type": "positive",
+  "priority": "high",
+  "expectedResult": "Usuário redirecionado para a página de produtos.",
+  "expectationSource": "requirement",
+  "executionCompleted": true,
+  "status": "PASS",
+  "evaluation": {
+    "scenarioId": "QA-001",
+    "status": "PASS",
+    "expected": "/inventory.html",
+    "observed": "https://www.saucedemo.com/inventory.html",
+    "reason": "URL corresponde ao critério.",
+    "evaluatedAt": "2026-10-13T14:25:39.228Z"
+  },
+  "agentSummary": "## Resultado da Execução — QA-001 | LOGIN_VALID\n\n**Status do Cenário:** ✅ PASSOU\n\n---\n\n### Evidências Coletadas\n\n| Passo | Ação | Resultado Observado |\n|-------|------|---------------------|\n| 1 | Preencheu Username com `standard_user` | Campo preenchido com sucesso |\n| 2 | Preencheu Password com `secret_sauce` | Campo preenchido com sucesso |\n| 3 | Clicou no botão Login | Requisição de autenticação enviada |\n| 4 | Observou o resultado | Redirecionado para `/inventory.html` |\n\n---\n\n### Resultado Esperado vs. Observado\n\n- **Esperado:** Usuário redirecionado para a página de produtos.\n- **Observado:** URL alterada para `https://www.saucedemo.com/inventory.html` com exibição de 6 produtos: Sauce Labs Backpack, Sauce Labs Bike Light, Sauce Labs Bolt T-Shirt, Sauce Labs Fleece Jacket, Sauce Labs Onesie, Test.allTheThings() T-Shirt (Red).\n\n### Veredicto: ✅ COMPORTAMENTO CONFORME O REQUISITO\n\nO sistema autenticou o usuário `standard_user` corretamente e o redirecionou para a página de produtos, atendendo plenamente ao resultado esperado definido no requisito.",
+  "metrics": {
+    "inputTokens": 7485,
+    "outputTokens": 809,
+    "cacheCreationTokens": 0,
+    "cacheReadTokens": 0,
+    "totalSteps": 4,
+    "durationMs": 14445,
+    "actions": [
+      {
+        "step": 1,
+        "tool": "type",
+        "success": true,
+        "durationMs": 674,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 2,
+        "tool": "type",
+        "success": true,
+        "durationMs": 588,
+        "url": "https://www.saucedemo.com/"
+      },
+      {
+        "step": 3,
+        "tool": "click",
+        "success": true,
+        "durationMs": 372,
+        "url": "https://www.saucedemo.com/inventory.html"
+      }
+    ]
+  },
+  "evidence": "artifacts\\qa-run-2026-10-13T14-25-23-542Z\\QA-001\\evidence.png",
+  "error": null,
+  "scenarioKey": "LOGIN_VALID"
+}

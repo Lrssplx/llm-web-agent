@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-10-13T14:25:57.785Z",
+  "feature": "Autenticação Swag Labs",
+  "objective": "Explore a funcionalidade de login do Swag Labs. Crie e execute cenários positivos, negativos e de borda, verificando mensagens de erro e comportamentos inesperados.",
+  "baseUrl": "https://www.saucedemo.com/",
+  "totalScenarios": 2,
+  "mode": "regression",
+  "completedExecutions": 2,
+  "passed": 2,
+  "failed": 0,
+  "inconclusive": 0,
+  "scenarios": [
+    {
+      "id": "QA-001",
+      "title": "Login com credenciais válidas",
+      "type": "positive",
+      "priority": "high",
+      "expectedResult": "Usuário redirecionado para a página de produtos.",
+      "expectationSource": "requirement",
+      "executionCompleted": true,
+      "status": "PASS",
+      "evaluation": {
+        "scenarioId": "QA-001",
+        "status": "PASS",
+        "expected": "/inventory.html",
+        "observed": "https://www.saucedemo.com/inventory.html",
+        "reason": "URL corresponde ao critério.",
+        "evaluatedAt": "2026-10-13T14:25:39.228Z"
+      },
+      "agentSummary": "## Resultado da Execução — QA-001 | LOGIN_VALID\n\n**Status do Cenário:** ✅ PASSOU\n\n---\n\n### Evidências Coletadas\n\n| Passo | Ação | Resultado Observado |\n|-------|------|---------------------|\n| 1 | Preencheu Username com `standard_user` | Campo preenchido com sucesso |\n| 2 | Preencheu Password com `secret_sauce` | Campo preenchido com sucesso |\n| 3 | Clicou no botão Login | Requisição de autenticação enviada |\n| 4 | Observou o resultado | Redirecionado para `/inventory.html` |\n\n---\n\n### Resultado Esperado vs. Observado\n\n- **Esperado:** Usuário redirecionado para a página de produtos.\n- **Observado:** URL alterada para `https://www.saucedemo.com/inventory.html` com exibição de 6 produtos: Sauce Labs Backpack, Sauce Labs Bike Light, Sauce Labs Bolt T-Shirt, Sauce Labs Fleece Jacket, Sauce Labs Onesie, Test.allTheThings() T-Shirt (Red).\n\n### Veredicto: ✅ COMPORTAMENTO CONFORME O REQUISITO\n\nO sistema autenticou o usuário `standard_user` corretamente e o redirecionou para a página de produtos, atendendo plenamente ao resultado esperado definido no requisito.",
+      "metrics": {
+        "inputTokens": 7485,
+        "outputTokens": 809,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 4,
+        "durationMs": 14445,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 674,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 588,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 372,
+            "url": "https://www.saucedemo.com/inventory.html"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-25-23-542Z\\QA-001\\evidence.png",
+      "error": null,
+      "scenarioKey": "LOGIN_VALID"
+    },
+    {
+      "id": "QA-002",
+      "title": "Login com senha incorreta",
+      "type": "negative",
+      "priority": "high",
+      "expectedResult": "Acesso negado com mensagem de credenciais inválidas.",
+      "expectationSource": "requirement",
+      "executionCompleted": true,
+      "status": "PASS",
+      "evaluation": {
+        "scenarioId": "QA-002",
+        "status": "PASS",
+        "expected": "Epic sadface: Username and password do not match any user in this service",
+        "observed": "Texto esperado visível.",
+        "reason": "Assertion de visibilidade atendida.",
+        "evaluatedAt": "2026-10-13T14:25:57.413Z"
+      },
+      "agentSummary": "\n## Resultado do Cenário QA-002 — LOGIN_INVALID_PASSWORD\n\n**Status da execução:** ✅ Concluída\n\n---\n\n### Passos executados:\n| # | Ação | Resultado |\n|---|------|-----------|\n| 1 | Username preenchido com `standard_user` | ✅ Campo preenchido |\n| 2 | Password preenchida com `senha_errada` | ✅ Campo preenchido |\n| 3 | Clique no botão Login | ✅ Ação executada |\n| 4 | Observação da mensagem de erro | ✅ Mensagem exibida |\n\n---\n\n### Comportamento observado:\n- **URL após tentativa:** `https://www.saucedemo.com/` (sem redirecionamento — acesso negado)\n- **Mensagem de erro exibida:** *\"Epic sadface: Username and password do not match any user in this service\"*\n- **Botão \"Dismiss error\"** disponível para fechar a mensagem\n\n---\n\n### Comparação com o resultado esperado:\n| Critério | Esperado | Observado | Conformidade |\n|----------|----------|-----------|--------------|\n| Acesso negado | Sim | Sim (URL não mudou) | ✅ Conforme |\n| Mensagem de erro exibida | Sim | Sim | ✅ Conforme |\n| Conteúdo da mensagem | Credenciais inválidas | \"Username and password do not match any user in this service\" | ✅ Conforme |\n\n---\n\n### Conclusão:\nO sistema se comportou **conforme o resultado esperado** definido no requisito. O login com senha incorreta é devidamente bloqueado e uma mensagem clara de erro é apresentada ao usuário.\n",
+      "metrics": {
+        "inputTokens": 9003,
+        "outputTokens": 903,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalSteps": 5,
+        "durationMs": 16516,
+        "actions": [
+          {
+            "step": 1,
+            "tool": "type",
+            "success": true,
+            "durationMs": 661,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 2,
+            "tool": "type",
+            "success": true,
+            "durationMs": 571,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 3,
+            "tool": "click",
+            "success": true,
+            "durationMs": 348,
+            "url": "https://www.saucedemo.com/"
+          },
+          {
+            "step": 4,
+            "tool": "extract_text",
+            "success": true,
+            "durationMs": 4,
+            "url": "https://www.saucedemo.com/"
+          }
+        ]
+      },
+      "evidence": "artifacts\\qa-run-2026-10-13T14-25-23-542Z\\QA-002\\evidence.png",
+      "error": null,
+      "scenarioKey": "LOGIN_INVALID_PASSWORD"
+    }
+  ]
+}
